@@ -8,6 +8,10 @@ app.use(cors());
 express.json();
 express.urlencoded({ extended: false });
 
+app.use("/", () => {
+  alert("its connect");
+});
+
 app.use("/api/anime", animeRoute);
 
 app.listen(port, () => console.log("Listening on Port " + port));
