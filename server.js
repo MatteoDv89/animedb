@@ -9,7 +9,7 @@ express.json();
 express.urlencoded({ extended: false });
 
 app.use("/", () => {
-  alert("its connect");
+  console.log("its connect");
 });
 
 app.use("/api/anime", animeRoute);
