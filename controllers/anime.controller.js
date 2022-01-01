@@ -14,7 +14,10 @@ module.exports.getHomePage = async (req, res) => {
   });
   let data = [];
 
-  resInfo.then(async (res) => await data.push(res)).then(() => res.json(data));
+  resInfo
+    .then(async (res) => await data.push(res))
+    .then(() => res.json(data))
+    .catch((err) => console.log(err));
 };
 
 module.exports.getEpisodePage = async (req, res) => {
@@ -28,7 +31,9 @@ module.exports.getEpisodePage = async (req, res) => {
     let info = await api.getEmbed(id).catch((err) => console.log(err));
     return info;
   });
-  getData.then((result) => res.send(result[0]));
+  getData
+    .then((result) => res.send(result[0]))
+    .catch((err) => console.log(err));
 };
 
 module.exports.getDetailPage = async (req, res) => {
@@ -42,5 +47,6 @@ module.exports.getDetailPage = async (req, res) => {
   let data = [];
   getData
     .then(async (res) => await data.push(res))
-    .then(() => res.json({ synop: data[0].synop, eps: data[0].eps }));
+    .then(() => res.json({ synop: data[0].synop, eps: data[0].eps }))
+    .catch((err) => console.log(err));
 };
